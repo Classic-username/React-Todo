@@ -3,6 +3,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+import Styled from 'styled-components';
+
 import './components/TodoComponents/Todo.css';
 
 const todo = [
@@ -17,6 +19,29 @@ const todo = [
     completed: false
   }
 ]
+
+var Bodiv = Styled.div`
+  width: 900px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  background: #007ea7;
+  padding-top: 10px;
+`;
+
+var Headiv = Styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+var Bodydiv = Styled.div`
+  display: flex;
+`;
+
 
 class App extends React.Component {
   constructor(){
@@ -60,22 +85,25 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
+
+
   render() {
     return (
-      <div>
-        <div>
+      <Bodiv>
+        <Headiv>
           <h2>Welcome to Joshua Draper's Todo App!</h2>
           <h1>Todo List</h1>
           <TodoForm addTodo={this.addTodo} />
-        </div>
+        </Headiv>
 
-        <div>
+        <Bodydiv>
           <TodoList
             todo={this.state.todo}
             toggleTodo={this.toggleTodo}
             clearCompleted={this.clearCompleted} />
-        </div>
-      </div>
+        </Bodydiv>
+      </Bodiv>
     );
   }
 }
